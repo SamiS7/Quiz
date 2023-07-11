@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <header id="links">
+        <a href="./index.html">Home</a>
+        <a href="./unterseiten/quiz.html">Quiz</a>
+        <a href="./unterseiten/createQuiz.html">Create Quiz</a>
+        <a href="./unterseiten/überMich.html">Impressum</a>
+    </header>
+
+    <h1 id="top5" class="pb-3 pt-3">Top 5 Quiz</h1>
+    <div id="top5Quiz">
+        <div class="tops">
+            <a href="./unterseiten/quiz.html">
+
+                <h4>1</h4>
+                <div class="topQ">
+                    <h2 class="name p-3">Marvel Cinematic Universe</h2>
+                    <h5 class = "col-lg-11 col-sm-12 pb-3">Was war der erste Film in MCU?, Welche Original Avenger hatte(hat) als letzter ihren/seinen
+                        ersten Solo Film?...</h5>
+                </div>
+            </a>
+
+        </div>
+        <div class="tops">
+            <a href="./unterseiten/quiz.html">
+                <h4>2</h4>
+                <div class="topQ">
+                    <h2 class="name p-3">Filme</h2>
+                    <h5 class = "col-lg-11 col-sm-12 pb-3">Wo liegt Hollywood?, Wie viele Filme aus der "Herr Der Ringe" Welt gibt es?...</h5>
+                </div>
+            </a>
+
+        </div>
+        <div class="tops">
+            <a href="./unterseiten/quiz.html">
+                <h4>3</h4>
+                <div class="topQ">
+                    <h2 class="name p-3">Serien</h2>
+                    <h5 class = "col-lg-11 col-sm-12 pb-3">Was ist/war die erste Serie auf Marvel Universe?, Wie lange erzählt Ted Mosby seinen Kinder die
+                        Geschichte, wie er ihre Mutter getroffen hat?...</h5>
+                </div>
+            </a>
+
+        </div>
+        <div class="tops">
+            <a href="./unterseiten/quiz.html">
+                <h4>4</h4>
+                <div class="topQ">
+                    <h2 class="name p-3">Javascript</h2>
+                    <h5 class = "col-lg-11 col-sm-12 pb-3">Seit wann gibt es Javascript?, How do you write "Hello World" in an alert box?...</h5>
+                </div>
+            </a>
+
+        </div>
+        <div class="tops">
+            <a href="./unterseiten/quiz.html">
+                <h4>5</h4>
+                <div class="topQ">
+                    <h2 class="name p-3">Sport</h2>
+                    <h5 class = "col-lg-11 col-sm-12 pb-3">Welche Sport hat die meiste Fans auf der Welt?, Wer ist Cristiano Ronaldo?...</h5>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</body>
+
+<script>
+
+    for (let i = 0; i < 5 && localStorage.getItem(i + 1 + '--TopQuiz') != null; i++) {
+        let text = localStorage.getItem(i + 1 + '--TopQuiz');
+        text = text.split("--;");
+        let code;
+        let counter = localStorage.getItem(text[0] + '--Counter');
+
+        if (counter != null) {
+            code = `<h2 class="name p-3">${text[0]}</h2>
+                    <div class = "topQBox row">
+                        <h5 class = "col-lg-11 col-sm-12 pb-3">${text[1]}, ${text[2]}...</h5>
+                        <p class = "d-flex justify-content-end col-lg-1 col-sm-12" title="Anzahl der Benutzer, die das Quiz gespielt haben.">${counter} Mal</p>
+                   </div>`;
+        } else {
+            code = `<h2 class="name p-3">${text[0]}</h2>
+                    <div class = "topQBox">
+                    <h5 class = "col-lg-11 col-sm-12 pb-3">${text[1]}, ${text[2]}...</h5>
+                    </div>`;
+        }
+        document.getElementsByClassName('topQ')[i].innerHTML = code;
+    }
+
+    let t = document.getElementsByClassName('tops');
+    let name = document.getElementsByClassName('name');
+
+    for (let i = 0; i < t.length; i++) {
+        t[i].addEventListener('click', function () {
+            localStorage.setItem('--Startseite', name[i].innerHTML);
+
+            if (localStorage.getItem(name[i].innerHTML + '--Counter') != null) {
+                localStorage.setItem(name[i].innerHTML + '--Counter', parseInt(localStorage.getItem(name[i].innerHTML + '--Counter')) + 1);
+                console.log(parseInt(localStorage.getItem(name[i].innerHTML + '--Counter')));
+            } else {
+                localStorage.setItem(name[i].innerHTML + '--Counter', 1);
+            }
+        });
+    }
+
+</script>
+
+</html>

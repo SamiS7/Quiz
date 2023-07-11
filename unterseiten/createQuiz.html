@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link href="../css/bootstrap.min.css" rel="stylesheet"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./question.js"></script>
+    <script src="./quiz.js"></script>
+    <script src="./createQuiz.js" defer></script>
+    <script src="https://kit.fontawesome.com/2a541da855.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style.css">
+    <title>Create Quiz</title>
+</head>
+
+<body>
+    <header id="links">
+        <a href="./../index.html">Home</a>
+        <a href="./quiz.html">Quiz</a>
+        <a href="./createQuiz.html">Create Quiz</a>
+        <a href="./überMich.html">Impressum</a>
+    </header>
+
+    <div id="container-fluid">
+            <div id="inputs">
+            <input type="text" id="name" placeholder="Name of the quiz">
+            <input type="text" id="cQuestion" placeholder="Question">
+            <div>
+                <input type="text" class="cOption" placeholder="Option 1">
+                <input type="text" class="cOption" placeholder="Option 2">
+            </div>
+            <div>
+                <input type="text" class="cOption" placeholder="Option 3">
+                <input type="text" class="cOption" placeholder="Option 4">
+            </div>
+            <input type="text" id="trueOpt" placeholder="True option in nr. 1 - 4">
+            <button type="button" id="nextQ">Next Question</button>
+            <div class="fMeldung" style="display: none;"></div>
+            <button type="button" id="create">create</button>
+            <div class="fMeldung" style="display: none;"></div>
+            </div>
+            <div id="content">
+            </div>
+    </div>
+</body>
+
+</html>
